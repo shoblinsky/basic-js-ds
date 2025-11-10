@@ -28,25 +28,25 @@ class BinarySearchTree {
         return;
       }
 
-    if (data > current.data) {
-      if (!current.right) {
-        current.right = new Node(data);
-        this.sizeInt += 1;
-        return;
+      if (data > current.data) {
+        if (!current.right) {
+          current.right = new Node(data);
+          this.sizeInt += 1;
+          return;
+        }
+        current = current.right;
       }
-      current = current.right;
-    }
 
-    if (data < current.data) {
-      if (!current.left) {
-        current.left = new Node(data);
-        this.sizeInt += 1;
-        return;
+      if (data < current.data) {
+        if (!current.left) {
+          current.left = new Node(data);
+          this.sizeInt += 1;
+          return;
+        }
+        current = current.left;
       }
-      current = current.left;
     }
   }
-}
 
   find(data) {
     let current = this.rootInt;
@@ -65,9 +65,8 @@ class BinarySearchTree {
     return null;
   }
 
-  has(/* data */) {
-    // Remove line below and write your code here
-    throw new NotImplementedError('Not implemented');
+  has(data) {
+    return !!(this.find(data));
   }
 
   remove(/* data */) {
